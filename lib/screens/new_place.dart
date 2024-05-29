@@ -1,4 +1,3 @@
-import 'package:favplace/models/place_model.dart';
 import 'package:favplace/providers/user_places.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

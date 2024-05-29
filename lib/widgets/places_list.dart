@@ -41,7 +41,7 @@ class _PlacesListState extends State<PlacesList> {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => PlaceDetail(
-                        placeTitle: widget.places[index].title,
+                        place: widget.places[index],
                       )));
             },
           );

@@ -1,4 +1,3 @@
-import 'package:favplace/models/place_model.dart';
 import 'package:favplace/providers/user_places.dart';
 import 'package:favplace/screens/new_place.dart';
 import 'package:favplace/widgets/places_list.dart';
