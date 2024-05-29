@@ -1,4 +1,5 @@
 import 'package:favplace/screens/newPlace.dart';
+import 'package:favplace/screens/placeDetail.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -17,12 +18,15 @@ class _MainPageState extends State<MainPage> {
         title: const Text('Your places'),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
+              onPressed: () async {
+                final placeName = await Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (ctx) => const NewPlace(),
+                    builder: (ctx) => NewPlace(),
                   ),
                 );
+                setState(() {
+                  placeList.add(placeName);
+                });
               },
               icon: const Icon(Icons.add))
         ],
@@ -35,6 +39,12 @@ class _MainPageState extends State<MainPage> {
                 placeList[index],
                 style: const TextStyle(color: Colors.black),
               ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => PlaceDetail(
+                          placeTitle: placeList[index],
+                        )));
+              },
             );
           }),
     );

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class NewPlace extends StatefulWidget {
-  const NewPlace({super.key});
+class NewPlace extends StatelessWidget {
+  NewPlace({super.key});
 
-  @override
-  State<NewPlace> createState() => _NewPlaceState();
-}
-
-class _NewPlaceState extends State<NewPlace> {
   final TextEditingController _textController = TextEditingController();
 
   @override
@@ -37,7 +32,7 @@ class _NewPlaceState extends State<NewPlace> {
 
                 onSubmitted: (text) {
                   // Handle text submission (e.g., pressing "Enter" or a button)
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pop(text);
                 },
               ),
             ),
