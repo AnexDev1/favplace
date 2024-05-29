@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:favplace/screens/mainPage.dart';
+import 'package:favplace/screens/places.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 102, 6, 247),
-  primaryContainer: const Color.fromARGB(255, 56, 49, 66),
+  onSurface: const Color.fromARGB(255, 56, 49, 66),
 );
 
 final theme = ThemeData().copyWith(
+  scaffoldBackgroundColor: colorScheme.onSurface,
   colorScheme: colorScheme,
+  appBarTheme: AppBarTheme(
+      color: colorScheme.primary,
+      actionsIconTheme: IconThemeData(color: colorScheme.onSurface)),
   textTheme: GoogleFonts.ubuntuCondensedTextTheme().copyWith(
     titleSmall: GoogleFonts.ubuntuCondensed(
       fontWeight: FontWeight.bold,
@@ -26,7 +31,7 @@ final theme = ThemeData().copyWith(
 
 void main() {
   runApp(
-    const MyApp(),
+    const ProviderScope(child: MyApp()),
   );
 }
 
@@ -38,7 +43,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Great Places',
       theme: theme,
-      home: MainPage(),
+      home: PlacesScreen(),
     );
   }
 }
