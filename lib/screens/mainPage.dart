@@ -1,3 +1,4 @@
+import 'package:favplace/screens/newPlace.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,8 +14,18 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your places'),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+        title: const Text('Your places'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const NewPlace(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.add))
+        ],
       ),
       body: ListView.builder(
           itemCount: placeList.length,
@@ -22,7 +33,7 @@ class _MainPageState extends State<MainPage> {
             return ListTile(
               title: Text(
                 placeList[index],
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
             );
           }),
