@@ -2,7 +2,7 @@ import 'package:favplace/models/place_model.dart';
 import 'package:favplace/screens/places_detail.dart';
 import 'package:flutter/material.dart';
 
-class PlacesList extends StatefulWidget {
+class PlacesList extends StatelessWidget {
   const PlacesList(
     this.places, {
     super.key,
@@ -10,13 +10,8 @@ class PlacesList extends StatefulWidget {
   final List<Place> places;
 
   @override
-  State<PlacesList> createState() => _PlacesListState();
-}
-
-class _PlacesListState extends State<PlacesList> {
-  @override
   Widget build(BuildContext context) {
-    if (widget.places.isEmpty) {
+    if (places.isEmpty) {
       return Center(
         child: Text(
           'No Places added',
@@ -28,11 +23,11 @@ class _PlacesListState extends State<PlacesList> {
       );
     }
     return ListView.builder(
-        itemCount: widget.places.length,
+        itemCount: places.length,
         itemBuilder: (ctx, index) {
           return ListTile(
             title: Text(
-              widget.places[index].title,
+              places[index].title,
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!
@@ -41,7 +36,7 @@ class _PlacesListState extends State<PlacesList> {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => PlaceDetail(
-                        place: widget.places[index],
+                        place: places[index],
                       )));
             },
           );
