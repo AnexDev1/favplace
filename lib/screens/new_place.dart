@@ -19,7 +19,7 @@ class _NewPlaceState extends ConsumerState<NewPlace> {
       return;
     }
 
-    ref.read(UserPlacesProvider.notifier).addPlace(enteredText);
+    ref.read(userPlacesProvider.notifier).addPlace(enteredText);
     Navigator.of(context).pop();
   }
 
