@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NewPlace extends ConsumerStatefulWidget {
-  NewPlace({super.key});
+  const NewPlace({super.key});
 
   @override
   ConsumerState<NewPlace> createState() => _NewPlaceState();
