@@ -1,4 +1,5 @@
 import 'package:favplace/providers/user_places.dart';
+import 'package:favplace/widgets/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -59,6 +60,10 @@ class _NewPlaceState extends ConsumerState<NewPlace> {
                 _savePlace();
               },
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            ImageInput(),
           ],
         ),
       ),
